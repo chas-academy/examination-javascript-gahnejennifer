@@ -36,13 +36,13 @@ function updateLists() {
     expenseList.innerHTML = ""
     expenses.forEach((exp) => {
         const li = document.createElement("li")
-        li.textContent = `${exp.description}: - ${exp.amount} kr`
+        li.textContent = `${exp.description} - ${exp.amount} kr (Utgift)`
         expenseList.appendChild(li)
     })
 
     incomes.forEach((inc) => {
         const li = document.createElement("li")
-        li.textContent = `${inc.description}: + ${inc.amount} kr`
+        li.textContent = `${inc.description} - ${inc.amount} kr (Inkomst)`
         incomeList.appendChild(li)
     })
 }
@@ -51,7 +51,7 @@ function updateBalance(){
     const totalIncome = incomes.reduce((sum, item) => sum + item.amount, 0)
     const totalExpenses = expenses.reduce((sum, item) => sum + item.amount, 0)
     const total = totalIncome - totalExpenses
-    balanceSpan.textContent = `${total} kr`
+    balanceSpan.textContent = `${total}`
 }
 
 incomeBtn.addEventListener("click", () => addTransaction("income"))
